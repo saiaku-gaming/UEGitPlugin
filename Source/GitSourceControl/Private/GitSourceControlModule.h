@@ -117,7 +117,7 @@ public:
 	{
 		return FModuleManager::Get().LoadModuleChecked< FGitSourceControlModule >("GitSourceControl");
 	}
-
+	
 	static inline FGitSourceControlModule* GetThreadSafe()
 	{
 		IModuleInterface* ModulePtr = FModuleManager::Get().GetModule("GitSourceControl");

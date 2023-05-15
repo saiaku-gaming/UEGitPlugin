@@ -1134,7 +1134,10 @@ static void ParseFileStatusResult(const FString& InPathToGitBinary, const FStrin
 	}
 	FGitSourceControlProvider& Provider = GitSourceControl->GetProvider();
 	const FString& LfsUserName = Provider.GetLockUser();
-
+	if (LfsUserName.IsEmpty())
+	{
+		return;
+	}
 	TMap<FString, FString> LockedFiles;
 	TMap<FString, FString> Results = InResults;
 	bool bCheckedLockedFiles = false;
